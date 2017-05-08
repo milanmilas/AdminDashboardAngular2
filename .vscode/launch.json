@@ -6,11 +6,12 @@
     "configurations": [
         
         {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceRoot}\\serve",
-            "cwd": "${workspaceRoot}"
+                "name": "Launch localhost with sourcemaps",
+                "type": "chrome",
+                "request": "launch",
+                "url": "http://localhost:4200",
+                "sourceMaps": true,
+                "webRoot": "${workspaceRoot}"
         },
         {
             "type": "node",

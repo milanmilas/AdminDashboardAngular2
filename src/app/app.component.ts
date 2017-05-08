@@ -1,31 +1,33 @@
 import { Component } from '@angular/core';
 
-import { IServerInfo } from '../serverinfo/serverInfo';
-
-import { ServerInfoService } from '../serverinfo/serverInfo.service';
+import { LogInService } from '../credentials/logIn.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ServerInfoService]
+  providers: [LogInService]
 })
 export class AppComponent {
   title = 'app works!';
   userName = 'milan';
   password = 'password';
-  serverInfos: IServerInfo[]
+  serverInfos: string
 
-  constructor (private _serverInfoService: ServerInfoService) {
+  constructor (private _logInService: LogInService) {
 
   }
 
-  ngOnInit(): void{
-    this._serverInfoService.getServerInfos().subscribe(
-      serverInfos => this.serverInfos = serverInfos);
-  }
+  // ngOnInit(): void{
+  //   this._logInService.logIn(this.userName, this.password).subscribe(
+  //     serverInfos => this.serverInfos = serverInfos);
+  // }
 
   logIn(): void{
-    this.userName = 'clicked'
+    this._logInService.logIn(this.userName, this.password).subscribe(
+        (result) =>
+         this.serverInfos = "success",
+        (error) => { 
+          this.serverInfos = "error"; })
   }
 }
