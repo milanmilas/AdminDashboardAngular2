@@ -1,17 +1,21 @@
 <h1>
+    <router-outlet></router-outlet>
   {{title}}
   <div style="width: 500px; margin: 200px auto 0 auto;">
-    <div>
-      Username: <input type="text" [(ngModel)]="userName" />
+    
+    <div *ngIf="!isLoggedIn(); else logOut">
+      <div>
+        Username: <input type="text" [(ngModel)]="userName" />
+      </div>
+      <div>
+        Password: <input type="password" [(ngModel)]="password" />
+      </div>
+      <button (click)="logIn()">Login</button>
     </div>
-    <div>
-      Password: <input type="password" [(ngModel)]="password" />
-    </div>
+    <ng-template #logOut>
+      <div>Logged in as: {{loggedInUser()}}</div>
+      <button (click)="logout()">LogOut</button>
+    </ng-template>
   </div>
-  <div>
-    <button (click)="logIn()">Login</button>
-  </div>
-  {{userName}}
-  {{password}}
-  {{serverInfos}}
+  <button (click)="logIn()">Login</button> {{userName}} {{password}} {{serverInfos}}
 </h1>

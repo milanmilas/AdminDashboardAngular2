@@ -9,6 +9,15 @@ using Newtonsoft.Json;
 
 namespace AdminApi.Controllers
 {
+
+//    POST /api/values/login HTTP/1.1
+//Host: localhost:28940
+//Content-Type: application/json
+//Cache-Control: no-cache
+//Postman-Token: 69eff262-8743-8d99-c500-125080a88340
+
+//{"username":"Andrew","password":"Lock"}
+
     public class ServerInfo
     {
         public string serverId { get; set; }

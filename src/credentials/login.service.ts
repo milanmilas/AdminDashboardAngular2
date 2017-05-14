@@ -23,7 +23,7 @@ export class LogInService {
 
     constructor (private _http: Http){
 
-    }
+    };
 
     logIn(userName: string, password: string) {
         var data = new Credentials();
@@ -42,5 +42,9 @@ export class LogInService {
                                 throw new Error(token.error);
                             }
                         });
+    };
+
+    logout() {
+        localStorage.removeItem('userAuthorisation');
     };
 }
