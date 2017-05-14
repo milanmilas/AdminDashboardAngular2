@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ServerInfoList } from '../serverinfo/serverinfo-list.component';
+import { ServerInfoList } from '../serverinfo/serverInfo-list.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { ServerInfoList } from '../serverinfo/serverinfo-list.component';
     RouterModule.forRoot(
       [
         { path: 'serverInfoList', component: ServerInfoList },
-        { path: '', component: ServerInfoList },
-        { path: '**', component: ServerInfoList }
+        { path: '', component: AppComponent },
+        { path: '**', component: AppComponent }
       ], { enableTracing: true }
     )
   ],

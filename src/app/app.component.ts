@@ -17,13 +17,7 @@ export class AppComponent {
 
   constructor (
     private _logInService: LogInService,
-    private router: Router
-    ) { }
-
-  // ngOnInit(): void{
-  //   this._logInService.logIn(this.userName, this.password).subscribe(
-  //     serverInfos => this.serverInfos = serverInfos);
-  // }
+    private router: Router) { }
 
   logIn(): void{
     this._logInService.logIn(this.userName, this.password).subscribe(
